@@ -1,0 +1,959 @@
+/* APP KO RESPONSIVE OR HAR SCREEN ME SAHI CHALANE KE LIYE RESPONSIVE CODE 
+ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent; 
+}
+
+html, body {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;   
+    overflow-x: hidden;
+    
+}
+
+@media screen and (max-width: 340px) {
+    html {
+        font-size: 90%; 
+    }
+    .mega-tournament {
+        margin: 10px 12px; 
+    }
+    .teams-vs {
+        gap: 10px;
+    }
+}
+
+@media screen and (min-width: 481px) {
+    body {
+        background-color: #000; 
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); 
+    }
+}
+
+
+/* HOME PAGE DESIGN YAHA SE SURU HA NICHE SE  */
+
+
+/* ================= CSS VARIABLES & THEME ================= */
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-card: rgba(25, 25, 25, 0.7);
+    --primary-red: #ff2a2a;
+    --primary-red-glow: rgba(255, 42, 42, 0.6);
+    --gradient-red: linear-gradient(135deg, #ff416c, #ff4b2b);
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --transition: all 0.3s ease-in-out;
+}
+
+/* ================= RESET & BASE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.mobile-container {
+    width: 100%;
+    max-width: 480px;
+    min-height: 100vh;
+    background: var(--bg-dark);
+    position: relative;
+    padding-bottom: 80px;
+    box-shadow: 0 0 50px rgba(255, 42, 42, 0.1);
+    overflow: hidden;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px var(--primary-red-glow); }
+    50% { box-shadow: 0 0 25px var(--primary-red-glow), 0 0 10px var(--primary-red); }
+    100% { box-shadow: 0 0 10px var(--primary-red-glow); }
+}
+
+@keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes infiniteGlow {
+    0% { box-shadow: 0 0 12px rgba(255, 42, 42, 0.4), 0 0 20px rgba(255, 42, 42, 0.2); }
+    100% { box-shadow: 0 0 28px var(--primary-red-glow), 0 0 50px rgba(255, 42, 42, 0.6); }
+}
+
+/* ================= HEADER ================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    animation: fadeInDown 0.8s ease;
+    position: sticky;
+    top: 0;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-red);
+    object-fit: cover;
+    padding: 2px;
+    animation: pulseGlow 3s infinite;
+}
+
+.greeting h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.greeting p {
+    font-size: 0.8rem;
+    color: var(--primary-red);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.header-icons i {
+    font-size: 1.2rem;
+    margin-left: 15px;
+    color: var(--text-main);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.header-icons i:hover {
+    color: var(--primary-red);
+    text-shadow: 0 0 10px var(--primary-red);
+}
+
+/* ================= HERO SECTION (FEATURED) ================= */
+.hero {
+    padding: 0 20px;
+    margin-top: 10px;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero-card {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000&auto=format&fit=crop') center/cover;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.tag {
+    background: var(--gradient-red);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.hero-overlay h2 {
+    font-family: 'Teko', sans-serif;
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+
+.play-btn {
+    background: var(--gradient-red);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    cursor: pointer;
+    animation: pulseGlow 2s infinite;
+}
+
+/* ================= CATEGORIES ================= */
+.categories {
+    padding: 20px 0 10px 20px;
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.categories::-webkit-scrollbar { display: none; }
+
+.cat-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    padding: 10px 25px;
+    border-radius: 30px;
+    white-space: nowrap;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cat-btn.active {
+    background: var(--primary-red);
+    color: white;
+    border-color: var(--primary-red);
+    box-shadow: 0 5px 15px var(--primary-red-glow);
+}
+
+/* ================= HORIZONTAL SCROLL SECTION ================= */
+.section-title {
+    padding: 20px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeInUp 0.8s ease 0.5s both;
+}
+
+.tournament-section .section-title {
+    margin-bottom: 13px !important; 
+}
+
+.section-title h3 {
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.section-title h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 30px;
+    height: 3px;
+    background: var(--primary-red);
+    border-radius: 5px;
+}
+
+.section-title a {
+    color: var(--primary-red);
+    font-size: 0.8rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.game-slider {
+    display: flex;
+    gap: 15px;
+    padding: 10px 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    animation: fadeInUp 0.8s ease 0.6s both;
+}
+.game-slider::-webkit-scrollbar { display: none; }
+
+.game-card {
+    min-width: 140px;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 10px;
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-red);
+    box-shadow: 0 10px 20px rgba(255, 42, 42, 0.1);
+}
+
+.game-img {
+    width: 100%;
+    height: 140px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.game-card h4 {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.game-rating {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.game-rating i { color: #ffd700; }
+
+/* ================= TOURNAMENT SECTION ================= */
+.tournament-section {
+    padding: 10px 20px;
+    animation: fadeInUp 0.8s ease 0.7s both;
+}
+
+.tourney-card {
+    background: linear-gradient(135deg, rgba(255, 42, 42, 0.1), rgba(0,0,0,0.8));
+    border: 1px solid var(--primary-red-glow);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.tourney-card::before {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 100px;
+    height: 100px;
+    background: var(--primary-red);
+    filter: blur(50px);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.tourney-info h4 { font-size: 1.1rem; margin-bottom: 5px; }
+.tourney-info p { font-size: 0.8rem; color: var(--text-muted); }
+.tourney-info span { color: var(--primary-red); font-weight: bold; }
+
+.join-btn {
+    background: transparent;
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative; 
+    z-index: 5;
+}
+
+.join-btn:hover {
+    background: var(--primary-red);
+    color: white;
+    box-shadow: 0 0 15px var(--primary-red-glow);
+}
+
+.join-btn:active {
+    transform: scale(0.92) !important;
+    background: var(--primary-red) !important;
+    color: white !important;
+}
+
+/* ================= BOTTOM NAVIGATION ================= */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 480px;
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 10px 25px;
+    border-top: 1px solid var(--glass-border);
+    border-radius: 30px 30px 0 0;
+    z-index: 1000;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-item i {
+    font-size: 1.4rem;
+    transition: var(--transition);
+}
+
+.nav-item.active { color: var(--primary-red); }
+
+.nav-item.active i {
+    transform: translateY(-8px);
+    animation: floating 2s infinite ease-in-out;
+    text-shadow: 0 0 10px var(--primary-red);
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    width: 5px;
+    height: 5px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--primary-red);
+}
+
+.nav-item.center-play i {
+    background: var(--gradient-red);
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    top: -35px;
+    border: 4px solid var(--bg-dark);
+    box-shadow: 0 5px 15px var(--primary-red-glow);
+}
+
+
+/* ================= EXPLORE PAGE ================= */
+
+
+.explore-header {
+    padding: 20px 20px 10px 20px;
+    background: linear-gradient(to bottom, rgba(40, 0, 0, 0.6), transparent);
+}
+
+.explore-header h2 {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.explore-content {
+    padding: 0 20px 90px 20px;
+}
+
+.explore-content .section-title {
+    padding-left: 0px;      /* 1. Heading ko aur peeche (left me) laane ke liye */
+    margin-bottom: 20px;    /* 2. Neeche wale cards se chipkapan bilkul khatam karne ke liye */
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.section-title span {
+    color: #ff3b30 !important;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.cat-card {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    color: #e0e0e0;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid #2a2a2a;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.cat-card i {
+    font-size: 1.6rem;
+    color: var(--primary-red);
+    transition: transform 0.3s ease;
+}
+
+.cat-card:active {
+    transform: scale(0.95);
+    border-color: var(--primary-red);
+    background-color: rgba(255, 50, 50, 0.05);
+}
+
+.games-scroll {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+}
+.games-scroll::-webkit-scrollbar { display: none; }
+
+.game-card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.explore-content .game-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+.game-info { padding: 12px; }
+
+.game-info h4 {
+    font-size: 0.9rem;
+    color: #fff;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.game-info p {
+    font-size: 0.8rem;
+    color: #aaa;
+    font-weight: 600;
+}
+
+/* ================= ANIMATION UTILITIES ================= */
+.fade-in { animation: fadeIn 0.6s ease forwards; }
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+
+/*  ==========ESPORTS PAGE YAHA SE SURU HO RHA HA======= */
+
+
+.mega-tournament { 
+    margin: 15px 20px 20px 20px; 
+    border-radius: 16px; 
+    background: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600&auto=format&fit=crop') center/cover; 
+    position: relative; 
+    overflow: hidden; 
+    border: 1px solid #333; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5); 
+    transition: border-color 0.3s ease;
+}
+
+.mega-tournament:hover { 
+    border-color: var(--primary-red); 
+}
+
+.banner-overlay { 
+    background: linear-gradient(to right, rgba(20, 0, 0, 0.95), rgba(20, 0, 0, 0.4)); 
+    height: 100%; 
+    padding: 25px 20px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+.live-badge { 
+    background-color: var(--primary-red); 
+    color: #fff; 
+    font-size: 0.75rem; 
+    padding: 4px 10px; 
+    border-radius: 6px; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 6px; 
+    width: fit-content; 
+    font-weight: 700; 
+    letter-spacing: 1px; 
+    margin-bottom: 12px; 
+    box-shadow: 0 0 10px rgba(255, 50, 50, 0.4); 
+}
+
+.pulse { 
+    width: 8px; 
+    height: 8px; 
+    background: #fff; 
+    border-radius: 50%; 
+    animation: pulseAnim 1.5s infinite; 
+}
+
+@keyframes pulseAnim { 
+    0% { 
+        transform: scale(0.9); 
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); 
+    } 
+    70% { 
+        transform: scale(1.1); 
+        box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); 
+    } 
+    100% { 
+        transform: scale(0.9); 
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); 
+    } 
+}
+
+.banner-overlay h3 { 
+    font-size: 1.4rem; 
+    color: #fff; 
+    margin-bottom: 5px; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+}
+
+.banner-overlay p { 
+    color: #ccc; 
+    font-size: 0.85rem; 
+    margin-bottom: 15px; 
+    font-weight: 600; 
+}
+
+.banner-overlay p i { 
+    color: #ffd700; 
+}
+
+.teams-vs { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 15px; 
+    font-family: 'Poppins', sans-serif;
+}
+
+.teams-vs .team { 
+    color: #fff; 
+    background: none !important;       
+    padding: 0 !important;
+    padding-bottom: 4px !important;
+    font-weight: 800;       
+    font-size: 1.1rem;      
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2), 0 0 15px rgba(255, 255, 255, 0.5); 
+    border-bottom: 2px solid #f5f5dc; 
+    box-shadow: none !important; 
+    filter: drop-shadow(0px 3px 4px rgba(245, 245, 220, 0.6));
+}
+
+.teams-vs .vs { 
+    color: var(--primary-red); 
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 50, 50, 0.8); 
+}
+
+.watch-btn { 
+    background: #6441a5; 
+    color: white; 
+    border: none; 
+    padding: 10px 18px; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    width: fit-content; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    font-family: 'Poppins', sans-serif; 
+    transition: 0.3s; 
+}
+
+.watch-btn:active { 
+    transform: scale(0.95); 
+    background: #503484; 
+}
+
+.t-card { 
+    background: #161616; 
+    border-radius: 14px; 
+    display: flex; 
+    overflow: hidden; 
+    margin-bottom: 15px; 
+    border: 1px solid #2a2a2a; 
+    transition: all 0.3s ease; 
+}
+
+.t-card:active { 
+    transform: scale(0.98); 
+    border-color: var(--primary-red); 
+    background: rgba(255, 50, 50, 0.03); 
+}
+
+.t-img { 
+    width: 110px; 
+    object-fit: cover; 
+    border-right: 1px solid #2a2a2a; 
+}
+
+.t-details { 
+    padding: 15px; 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+.t-details h4 { 
+    color: #fff; 
+    font-size: 1.05rem; 
+    margin-bottom: 6px; 
+    font-weight: 600; 
+}
+
+.t-meta { 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 0.8rem; 
+    font-weight: 600; 
+    margin-bottom: 12px; 
+}
+
+.t-meta .prize { 
+    color: #ffd700; 
+}
+
+.t-action { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.slots { 
+    font-size: 0.75rem; 
+    color: #888; 
+    font-weight: 600; 
+}
+
+.register-btn { 
+    background: transparent; 
+    border: 1px solid var(--primary-red); 
+    color: var(--primary-red); 
+    padding: 6px 16px; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    font-family: 'Poppins', sans-serif; 
+    cursor: pointer; 
+    transition: 0.3s; 
+}
+
+.register-btn:active { 
+    background: var(--primary-red); 
+    color: #fff; 
+}
+
+
+/* =====YAHA SE PROFILE PAGE SURU HO RHA HA ====== */
+   
+   
+.profile-container {
+    padding: 0 20px 100px 20px;
+}
+
+.profile-hero {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-top: 10px;
+}
+
+/* Infinite Neon Halo Glow Layer for Image */
+.avatar-wrapper {
+    width: 115px;
+    height: 115px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    padding: 3px;
+    background: var(--primary-red);
+    position: relative;
+    animation: infiniteGlow 2.5s infinite alternate ease-in-out;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #111;
+}
+
+.profile-hero h2 {
+    font-size: 1.8rem;
+    font-family: 'Teko', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+    color: var(--text-main);
+}
+
+.gamer-tag {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Premium Profile Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, rgba(255, 42, 42, 0.05), rgba(20, 20, 20, 0.9));
+    border: 1px solid rgba(255, 42, 42, 0.15);
+    padding: 15px 10px;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.stat-box h3 {
+    font-family: 'Teko', sans-serif;
+    font-size: 1.6rem;
+    color: var(--primary-red);
+}
+
+.stat-box p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Profile List Menu Action Items */
+.profile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.menu-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-left i {
+    color: var(--primary-red);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.menu-left span {
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.menu-item .fa-chevron-right {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: transform 0.2s ease;
+}
+
+/* Slick Touch/Click Feedback for Menu Options */
+.menu-item:active {
+    transform: scale(0.97);
+    background: rgba(255, 42, 42, 0.08);
+    border-color: rgba(255, 42, 42, 0.2);
+}
+
+.menu-item:active .fa-chevron-right {
+    transform: translateX(3px);
+}
+
+/* ==GAMEPAD VALE CENTER ICON KO FORCE KIYA GAYA HA GLOW KARNE KE LIYE==*/
+
+#nav-play, 
+.bottom-nav #nav-play,
+.bottom-nav .center-play {
+    /* Taaki glow bar ke peeche na chhup jaye */
+    overflow: visible !important; 
+}
+
+#nav-play i,
+.bottom-nav .center-play i {
+    /* 🌟 Profile avatar waala pulseGlow forcibly apply kiya */
+    animation: pulseGlow 3s infinite !important; 
+    
+    /* Agar animation load na ho, toh ek permanent solid glow aura hamesha rahega */
+    box-shadow: 0 0 20px var(--primary-red), 0 0 10px var(--primary-red-glow) !important;
+}
+
+/* == YAHA SE GLOW KARANE KA CODE KHATAM == */
