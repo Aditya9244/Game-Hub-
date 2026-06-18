@@ -10,299 +10,364 @@
 </head>
 <body>
 
-<div class="mobile-container">
+    <div class="gh-portal-wrapper">
     
-    <div id="home-page" class="page-section">
-        <header>
-            <div class="user-info">
-                <img src="Aditya.png" alt="User" class="avatar">
-                <div class="greeting">
-                    <p>WELCOME BACK</p>
-                    <h1>Aditya <i class="fa-solid fa-check-circle" style="color:var(--primary-red); font-size:0.9rem;"></i></h1>
-                </div>
-            </div>
-            <div class="header-icons">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-regular fa-bell"></i>
-            </div>
-        </header>
+        <div id="ghToastContainer" class="gh-toast-container"></div>
 
-        <section class="hero">
-            <div class="hero-card">
-                <div class="hero-overlay">
-                    <span class="tag">Game of the Day</span>
-                    <h2>CYBER NINJA 2077</h2>
-                    <button class="play-btn">
-                        <i class="fa-solid fa-play"></i> PLAY NOW
+        <div class="gh-portal-card">
+            <div class="gh-portal-header">
+                <h1 class="gh-neon-text-red">RED<span>ZONE</span></h1>
+                <p class="gh-subtitle">GAMING HUB ACCESS PORTAL</p>
+            </div>
+
+            <div id="ghLoginBox" class="gh-portal-box gh-active">
+                <form id="ghLoginForm" novalidate>
+                    <div class="gh-input-group">
+                        <input type="email" id="ghLoginEmail" required placeholder=" ">
+                        <label>Registered Email</label>
+                        <span class="gh-input-glow"></span>
+                    </div>
+                    <div class="gh-input-group">
+                        <input type="password" id="ghLoginPass" required placeholder=" ">
+                        <label> Password</label>
+                        
+             <i class="fa fa-eye toggle-password" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gh-text-gray);"></i>
+                        
+                        <span class="gh-input-glow"></span>
+                    </div>
+                    <div class="gh-form-options">
+                        <label class="gh-remember-me">
+                            <input type="checkbox" id="ghRememberMe">
+                            <span class="gh-checkmark"></span> Remember Me
+                        </label>
+                        <a href="#" class="gh-forgot-link">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="gh-btn-premium">
+                        <span class="gh-btn-text">LAUNCH GAME</span>
                     </button>
-                </div>
+                </form>
+                <p class="gh-switch-portal-text">New Recruit? <a href="#" id="ghToSignUp">Create Account</a></p>
             </div>
-        </section>
 
-        <div class="categories">
-            <div class="cat-btn active">All Games</div>
-            <div class="cat-btn">Action</div>
-            <div class="cat-btn">RPG</div>
-            <div class="cat-btn">Racing</div>
-            <div class="cat-btn">Strategy</div>
+            <div id="ghSignUpBox" class="gh-portal-box gh-hidden">
+                <form id="ghSignUpForm" novalidate>
+                    <div class="gh-input-group">
+                        <input type="text" id="ghSignUpName" required placeholder=" " autocomplete="off">
+                        <label>Gamer Name (Letters Only)</label>
+                        <span class="gh-input-glow"></span>
+                    </div>
+                    <div class="gh-input-group">
+                        <input type="email" id="ghSignUpEmail" required placeholder=" " autocomplete="off">
+                        <label>Email Address</label>
+                        <span class="gh-input-glow"></span>
+                    </div>
+                    <div class="gh-input-group">
+                        <input type="text" id="ghSignUpPhone" required placeholder=" " autocomplete="off">
+                        <label>Gamer ID / Phone (Digits Only)</label>
+                        <span class="gh-input-glow"></span>
+                    </div>
+                    <div class="gh-input-group">
+                        <input type="password" id="ghSignUpPass" required placeholder=" ">
+                        <label>Create Strong Password</label>
+                        
+                           <i class="fa fa-eye toggle-password" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gh-text-gray);"></i>
+                        
+                        <span class="gh-input-glow"></span>
+                        <div class="gh-strength-meter"><div id="ghStrengthBar"></div></div>
+                    </div>
+                    <div class="gh-input-group">
+                        <input type="password" id="ghSignUpConfirmPass" required placeholder=" ">
+                        <label>Confirm Password</label>
+                        
+                           <i class="fa fa-eye toggle-password" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--gh-text-gray);"></i>
+                        
+                        <span class="gh-input-glow"></span>
+                    </div>
+                    <button type="submit" class="gh-btn-premium">
+                        <span class="gh-btn-text">REGISTER HERO</span>
+                    </button>
+                </form>
+                <p class="gh-switch-portal-text">Already Enlisted? <a href="#" id="ghToLogin">Login Here</a></p>
+            </div>
         </div>
 
-        <section>
-            <div class="section-title">
-                <h3>Trending Now</h3>
-                <a href="#">See All</a>
-            </div>
-            <div class="game-slider">
-                <div class="game-card">
-                    <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=300&auto=format&fit=crop" alt="Game" class="game-img">
-                    <h4>Neon Riders</h4>
-                    <div class="game-rating">
-                        <span>Action</span>
-                        <span><i class="fa-solid fa-star"></i> 4.8</span>
-                    </div>
-                </div>
-                <div class="game-card">
-                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=300&auto=format&fit=crop" alt="Game" class="game-img">
-                    <h4>Dark Souls IV</h4>
-                    <div class="game-rating">
-                        <span>RPG</span>
-                        <span><i class="fa-solid fa-star"></i> 4.9</span>
-                    </div>
-                </div>
-                <div class="game-card">
-                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=300&auto=format&fit=crop" alt="Game" class="game-img">
-                    <h4>Warzone Elite</h4>
-                    <div class="game-rating">
-                        <span>Shooter</span>
-                        <span><i class="fa-solid fa-star"></i> 4.7</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    </div> <div id="mainAppContent" class="hidden">
 
-        <section class="tournament-section">
-            <div class="section-title" style="padding-left:0; padding-right:0;">
-                <h3>Live Tournaments</h3>
-            </div>
-            <div class="tourney-card">
-                <div class="tourney-info">
-                    <h4>Global Apex Cup</h4>
-                    <p>Prize Pool: <span>$50,000</span></p>
-                    <p style="margin-top:5px;"><i class="fa-solid fa-users" style="color:var(--text-muted);"></i> 124/500 Joined</p>
-                </div>
-                <button class="join-btn" ontouchstart="">JOIN</button>
-            </div>
-        </section>
-    </div>
-
-<!-- YAHA SE EXPLORE PAGE CHALU HOGAYA NICHE SE  -->
-
-    <div id="explore-page" class="page-section" style="display: none;">
-        <header class="explore-header fade-in">
-            <h2><i class="fa-solid fa-compass" style="color: var(--primary-red);"></i> Explore</h2>
+        <div class="mobile-container">
             
-        </header>
-
-        <div class="explore-content">
-            <div class="section-title slide-up">
-                <h3>Trending Categories</h3>
-            </div>
-            <div class="category-grid slide-up">
-                <div class="cat-card"><i class="fa-solid fa-crosshairs"></i> Shooter</div>
-                <div class="cat-card"><i class="fa-solid fa-car-burst"></i> Racing</div>
-                <div class="cat-card"><i class="fa-solid fa-chess-knight"></i> Strategy</div>
-                <div class="cat-card"><i class="fa-solid fa-khanda"></i> RPG</div>
-            </div>
-
-            <div class="section-title slide-up delay-1">
-                <h3>Popular Games</h3>
-                <span>See All</span>
-            </div>
-            <div class="games-scroll slide-up delay-1">
-                <div class="game-card">
-                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=300&auto=format&fit=crop" alt="Game">
-                    <div class="game-info">
-                        <h4>Battle Royale X</h4>
-                        <p><i class="fa-solid fa-star" style="color: #ffc107;"></i> 4.8</p>
-                    </div>
-                </div>
-                <div class="game-card">
-                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=300&auto=format&fit=crop" alt="Game">
-                    <div class="game-info">
-                        <h4>Speed Hunters</h4>
-                        <p><i class="fa-solid fa-star" style="color: #ffc107;"></i> 4.5</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!-- AB YAHA SE Esports PAGE CHALU HO GAYA NICHE SE  -->
-
-    <div id="esports-page" class="page-section" style="display: none;">
-        
-        <header class="explore-header fade-in">
-            <h2><i class="fa-solid fa-trophy" style="color: var(--primary-red);"></i> Esports Hub</h2>
-        </header>
-
-        <div class="mega-tournament slide-up">
-            <div class="banner-overlay">
-                <div class="live-badge">
-                    <span class="pulse"></span> LIVE NOW
-                </div>
-                <h3>Pro League Championship</h3>
-                <p><i class="fa-solid fa-sack-dollar"></i> Prize Pool: $100,000</p>
-                <div class="teams-vs">
-                    <span class="team">TEAM ALPHA</span>
-                    <span class="vs">VS</span>
-                    <span class="team">NINJA OPS</span>
-                </div>
-                <button class="watch-btn"><i class="fa-brands fa-twitch"></i> Watch Stream</button>
-            </div>
-        </div>
-
-        <div class="explore-content" style="padding-top: 10px;">
-            <div class="categories slide-up delay-1" style="padding: 0; margin-bottom: 15px;">
-                <div class="cat-btn active">Upcoming</div>
-                <div class="cat-btn">Results</div>
-                <div class="cat-btn">My Squad</div>
-            </div>
-
-            <div class="section-title slide-up delay-1">
-                <h3>Open Registrations</h3>
-                <span>Filter</span>
-            </div>
-            
-            <div class="tournament-list slide-up delay-1">
-                <div class="t-card">
-                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=300&auto=format&fit=crop" class="t-img" alt="BGMI">
-                    <div class="t-details">
-                        <h4>Battle Royale Masters</h4>
-                        <div class="t-meta">
-                            <span><i class="fa-solid fa-calendar" style="color:#888;"></i> 20 June</span>
-                            <span class="prize"><i class="fa-solid fa-trophy"></i> 10K USD</span>
-                        </div>
-                        <div class="t-action">
-                            <span class="slots">45/100 Teams</span>
-                            <button class="register-btn">Register</button>
+            <div id="home-page" class="page-section">
+                <header>
+                    <div class="user-info">
+                        <img src="Aditya.png" alt="User" class="avatar">
+                        <div class="greeting">
+                            <p>WELCOME BACK</p>
+                            <h1>Aditya <i class="fa-solid fa-check-circle" style="color:var(--primary-red); font-size:0.9rem;"></i></h1>
                         </div>
                     </div>
+                    <div class="header-icons">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-regular fa-bell"></i>
+                    </div>
+                </header>
+
+                <section class="hero">
+                    <div class="hero-card">
+                        <div class="hero-overlay">
+                            <span class="tag">Game of the Day</span>
+                            <h2>CYBER NINJA 2077</h2>
+                            <button class="play-btn">
+                                <i class="fa-solid fa-play"></i> PLAY NOW
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="categories">
+                    <div class="cat-btn active">All Games</div>
+                    <div class="cat-btn">Action</div>
+                    <div class="cat-btn">RPG</div>
+                    <div class="cat-btn">Racing</div>
+                    <div class="cat-btn">Strategy</div>
                 </div>
 
-                <div class="t-card">
-                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=300&auto=format&fit=crop" class="t-img" alt="Racing">
-                    <div class="t-details">
-                        <h4>Speed Drift Series</h4>
-                        <div class="t-meta">
-                            <span><i class="fa-solid fa-calendar" style="color:#888;"></i> 25 June</span>
-                            <span class="prize"><i class="fa-solid fa-trophy"></i> 5K USD</span>
+                <section>
+                    <div class="section-title">
+                        <h3>Trending Now</h3>
+                        <a href="#">See All</a>
+                    </div>
+                    <div class="game-slider">
+                        <div class="game-card">
+                            <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=300&auto=format&fit=crop" alt="Game" class="game-img">
+                            <h4>Neon Riders</h4>
+                            <div class="game-rating">
+                                <span>Action</span>
+                                <span><i class="fa-solid fa-star"></i> 4.8</span>
+                            </div>
                         </div>
-                        <div class="t-action">
-                            <span class="slots">12/50 Teams</span>
-                            <button class="register-btn">Register</button>
+                        <div class="game-card">
+                            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=300&auto=format&fit=crop" alt="Game" class="game-img">
+                            <h4>Dark Souls IV</h4>
+                            <div class="game-rating">
+                                <span>RPG</span>
+                                <span><i class="fa-solid fa-star"></i> 4.9</span>
+                            </div>
+                        </div>
+                        <div class="game-card">
+                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=300&auto=format&fit=crop" alt="Game" class="game-img">
+                            <h4>Warzone Elite</h4>
+                            <div class="game-rating">
+                                <span>Shooter</span>
+                                <span><i class="fa-solid fa-star"></i> 4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tournament-section">
+                    <div class="section-title" style="padding-left:0; padding-right:0;">
+                        <h3>Live Tournaments</h3>
+                    </div>
+                    <div class="tourney-card">
+                        <div class="tourney-info">
+                            <h4>Global Apex Cup</h4>
+                            <p>Prize Pool: <span>$50,000</span></p>
+                            <p style="margin-top:5px;"><i class="fa-solid fa-users" style="color:var(--text-muted);"></i> 124/500 Joined</p>
+                        </div>
+                        <button class="join-btn" ontouchstart="">JOIN</button>
+                    </div>
+                </section>
+            </div>
+
+            <div id="explore-page" class="page-section" style="display: none;">
+                <header class="explore-header fade-in">
+                    <h2><i class="fa-solid fa-compass" style="color: var(--primary-red);"></i> Explore</h2>
+                </header>
+
+                <div class="explore-content">
+                    <div class="section-title slide-up">
+                        <h3>Trending Categories</h3>
+                    </div>
+                    <div class="category-grid slide-up">
+                        <div class="cat-card"><i class="fa-solid fa-crosshairs"></i> Shooter</div>
+                        <div class="cat-card"><i class="fa-solid fa-car-burst"></i> Racing</div>
+                        <div class="cat-card"><i class="fa-solid fa-chess-knight"></i> Strategy</div>
+                        <div class="cat-card"><i class="fa-solid fa-khanda"></i> RPG</div>
+                    </div>
+
+                    <div class="section-title slide-up delay-1">
+                        <h3>Popular Games</h3>
+                        <span>See All</span>
+                    </div>
+                    <div class="games-scroll slide-up delay-1">
+                        <div class="game-card">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=300&auto=format&fit=crop" alt="Game">
+                            <div class="game-info">
+                                <h4>Battle Royale X</h4>
+                                <p><i class="fa-solid fa-star" style="color: #ffc107;"></i> 4.8</p>
+                            </div>
+                        </div>
+                        <div class="game-card">
+                            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=300&auto=format&fit=crop" alt="Game">
+                            <div class="game-info">
+                                <h4>Speed Hunters</h4>
+                                <p><i class="fa-solid fa-star" style="color: #ffc107;"></i> 4.5</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-<!-- AB YAHA SE PROFILE PAGE CHALU HO GAYA NICHE SE  -->
+            <div id="esports-page" class="page-section" style="display: none;">
+                <header class="explore-header fade-in">
+                    <h2><i class="fa-solid fa-trophy" style="color: var(--primary-red);"></i> Esports Hub</h2>
+                </header>
 
-<div id="profile-page" class="page-section" style="display: none;">
-    <header class="explore-header fade-in">
-        <h2><i class="fa-solid fa-user-gear" style="color: var(--primary-red);"></i> Player Profile</h2>
-    </header>
-
-    <div class="profile-container">
-        <div class="profile-hero slide-up">
-            <div class="avatar-wrapper">
-                <img src="Aditya.png" alt="Player Avatar" class="profile-avatar">
-            </div>
-            <h2>Aditya <i class="fa-solid fa-circle-check" style="color: var(--primary-red);"></i></h2>
-            <p class="gamer-tag">Instagram :➜  itz_royal_boy107</p>
-        </div>
-
-        <div class="stats-grid slide-up delay-1">
-            <div class="stat-box">
-                <h3>48</h3>
-                <p>Matches</p>
-            </div>
-            <div class="stat-box">
-                <h3>$1,250</h3>
-                <p>Earnings</p>
-            </div>
-            <div class="stat-box">
-                <h3>#12</h3>
-                <p>Global Rank</p>
-            </div>
-        </div>
-
-        <div class="profile-menu slide-up delay-2">
-            <div class="menu-item" ontouchstart="">
-                <div class="menu-left">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <span>My Team (Squad Alpha)</span>
+                <div class="mega-tournament slide-up">
+                    <div class="banner-overlay">
+                        <div class="live-badge">
+                            <span class="pulse"></span> LIVE NOW
+                        </div>
+                        <h3>Pro League Championship</h3>
+                        <p><i class="fa-solid fa-sack-dollar"></i> Prize Pool: $100,000</p>
+                        <div class="teams-vs">
+                            <span class="team">TEAM ALPHA</span>
+                            <span class="vs">VS</span>
+                            <span class="team">NINJA OPS</span>
+                        </div>
+                        <button class="watch-btn"><i class="fa-brands fa-twitch"></i> Watch Stream</button>
+                    </div>
                 </div>
-                <i class="fa-solid fa-chevron-right"></i>
-            </div>
-            <div class="menu-item" ontouchstart="">
-                <div class="menu-left">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                    <span>Match History</span>
+
+                <div class="explore-content" style="padding-top: 10px;">
+                    <div class="categories slide-up delay-1" style="padding: 0; margin-bottom: 15px;">
+                        <div class="cat-btn active">Upcoming</div>
+                        <div class="cat-btn">Results</div>
+                        <div class="cat-btn">My Squad</div>
+                    </div>
+
+                    <div class="section-title slide-up delay-1">
+                        <h3>Open Registrations</h3>
+                        <span>Filter</span>
+                    </div>
+                    
+                    <div class="tournament-list slide-up delay-1">
+                        <div class="t-card">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=300&auto=format&fit=crop" class="t-img" alt="BGMI">
+                            <div class="t-details">
+                                <h4>Battle Royale Masters</h4>
+                                <div class="t-meta">
+                                    <span><i class="fa-solid fa-calendar" style="color:#888;"></i> 20 June</span>
+                                    <span class="prize"><i class="fa-solid fa-trophy"></i> 10K USD</span>
+                                </div>
+                                <div class="t-action">
+                                    <span class="slots">45/100 Teams</span>
+                                    <button class="register-btn">Register</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="t-card">
+                            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=300&auto=format&fit=crop" class="t-img" alt="Racing">
+                            <div class="t-details">
+                                <h4>Speed Drift Series</h4>
+                                <div class="t-meta">
+                                    <span><i class="fa-solid fa-calendar" style="color:#888;"></i> 25 June</span>
+                                    <span class="prize"><i class="fa-solid fa-trophy"></i> 5K USD</span>
+                                </div>
+                                <div class="t-action">
+                                    <span class="slots">12/50 Teams</span>
+                                    <button class="register-btn">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <i class="fa-solid fa-chevron-right"></i>
             </div>
-            <div class="menu-item" ontouchstart="">
-                <div class="menu-left">
-                    <i class="fa-solid fa-wallet"></i>
-                    <span>Wallet & Rewards</span>
+
+            <div id="profile-page" class="page-section" style="display: none;">
+                <header class="explore-header fade-in">
+                    <h2><i class="fa-solid fa-user-gear" style="color: var(--primary-red);"></i> Player Profile</h2>
+                </header>
+
+                <div class="profile-container">
+                    <div class="profile-hero slide-up">
+                        <div class="avatar-wrapper">
+                            <img src="Aditya.png" alt="Player Avatar" class="profile-avatar">
+                        </div>
+                        <h2>Aditya <i class="fa-solid fa-circle-check" style="color: var(--primary-red);"></i></h2>
+                        <p class="gamer-tag">Instagram :➜  itz_royal_boy107</p>
+                    </div>
+
+                    <div class="stats-grid slide-up delay-1">
+                        <div class="stat-box">
+                            <h3>48</h3>
+                            <p>Matches</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>$1,250</h3>
+                            <p>Earnings</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>#12</h3>
+                            <p>Global Rank</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-menu slide-up delay-2">
+                        <div class="menu-item" ontouchstart="">
+                            <div class="menu-left">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <span>My Team (Squad Alpha)</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="menu-item" ontouchstart="">
+                            <div class="menu-left">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                                <span>Match History</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="menu-item" ontouchstart="">
+                            <div class="menu-left">
+                                <i class="fa-solid fa-wallet"></i>
+                                <span>Wallet & Rewards</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="menu-item" ontouchstart="">
+                            <div class="menu-left">
+                                <i class="fa-solid fa-gear"></i>
+                                <span>Account Settings</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
                 </div>
-                <i class="fa-solid fa-chevron-right"></i>
             </div>
-            <div class="menu-item" ontouchstart="">
-                <div class="menu-left">
-                    <i class="fa-solid fa-gear"></i>
-                    <span>Account Settings</span>
-                </div>
-                <i class="fa-solid fa-chevron-right"></i>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- YAHA APP KA BOTTOM NAVIGATION BAR HA NICHE KI SIDE  -->
+            <nav class="bottom-nav">
+                <a href="#" class="nav-item active" id="nav-home">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-explore">
+                    <i class="fa-solid fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="#" class="nav-item center-play" id="nav-play">
+                    <i class="fa-solid fa-gamepad"></i>
+                </a>
+                <a href="#" class="nav-item" id="nav-esports">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span>Esports</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-profile">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
 
-    <nav class="bottom-nav">
-        <a href="#" class="nav-item active" id="nav-home">
-            <i class="fa-solid fa-house"></i>
-            <span>Home</span>
-        </a>
-        <a href="#" class="nav-item" id="nav-explore">
-            <i class="fa-solid fa-compass"></i>
-            <span>Explore</span>
-        </a>
-        
-                 <a href="#" class="nav-item center-play" id="nav-play">
-            <i class="fa-solid fa-gamepad"></i>
-        </a>
-
-        
-        <a href="#" class="nav-item"
-          id="nav-esports">
-            <i class="fa-solid fa-trophy"></i>
-            <span>Esports</span>
-        </a>
-        <a href="#" class="nav-item"
-        id="nav-profile">
-            <i class="fa-regular fa-user"></i>
-            <span>Profile</span>
-        </a>
-    </nav>
-
-</div>
-
-<script src="script.js"></script>
-
+        </div> </div> <script src="script.js"></script>
 </body>
 </html>
