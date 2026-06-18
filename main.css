@@ -13,7 +13,6 @@ html, body {
     max-width: 480px;
     margin: 0 auto;   
     overflow-x: hidden;
-    
 }
 
 @media screen and (max-width: 340px) {
@@ -65,8 +64,14 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     overflow-x: hidden;
-    display: flex;
-    justify-content: center;
+    display: block; /* Fixed: Grid/flex collision se bachane ke liye */
+}
+
+/* Fixed: Tighter control for main display hide states */
+.hidden {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
 }
 
 .mobile-container {
@@ -493,8 +498,8 @@ header {
 }
 
 .explore-content .section-title {
-    padding-left: 0px;      /* 1. Heading ko aur peeche (left me) laane ke liye */
-    margin-bottom: 20px;    /* 2. Neeche wale cards se chipkapan bilkul khatam karne ke liye */
+    padding-left: 0px;      
+    margin-bottom: 20px;    
 }
 
 .category-grid {
@@ -596,7 +601,7 @@ header {
 @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 
-/*  ==========ESPORTS PAGE YAHA SE SURU HO RHA HA======= */
+/* ==========ESPORTS PAGE YAHA SE SURU HO RHA HA======= */
 
 
 .mega-tournament { 
@@ -957,3 +962,273 @@ header {
 }
 
 /* == YAHA SE GLOW KARANE KA CODE KHATAM == */
+
+/* YAHA PAAS SE LOGIN OR SIGN UP PAGE KA CSS HA  */
+
+:root {
+    --gh-bg-dark: #0a0506;
+    --gh-card-bg: rgba(18, 10, 11, 0.75);
+    --gh-neon-red: #ff003c;
+    --gh-neon-red-glow: rgba(255, 0, 60, 0.4);
+    --gh-text-white: #ffffff;
+    --gh-text-gray: #a5a1a2;
+    --gh-input-bg: #1a1012;
+}
+
+/* Fixed: Handled layout isolation for portal wrapper */
+.gh-portal-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #24050c 0%, var(--gh-bg-dark) 100%);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--gh-text-white);
+    overflow-x: hidden;
+    padding: 20px;
+    position: relative;
+    z-index: 10000;
+}
+
+/* Premium Card Layout */
+.gh-portal-card {
+    background: var(--gh-card-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 35px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 0, 60, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 0, 60, 0.05);
+    transform: translateY(0);
+    animation: ghCardEntry 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.gh-portal-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.gh-neon-text-red {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin: 0;
+    color: var(--gh-text-white);
+    text-shadow: 0 0 10px var(--gh-neon-red-glow);
+}
+
+.gh-neon-text-red span {
+    color: var(--gh-neon-red);
+    text-shadow: 0 0 15px var(--gh-neon-red);
+}
+
+.gh-subtitle {
+    font-size: 0.75rem;
+    color: var(--gh-text-gray);
+    letter-spacing: 2px;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+/* Form Management & Switching Transitions */
+.gh-portal-box {
+    opacity: 1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gh-portal-box.gh-hidden {
+    display: none !important;
+    opacity: 0 !important;
+    transform: scale(0.95);
+}
+
+/* Floating Input Groups */
+.gh-input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.gh-input-group input {
+    width: 100%;
+    padding: 14px 15px;
+    background: var(--gh-input-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--gh-text-white);
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.gh-input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gh-text-gray);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    font-size: 0.95rem;
+}
+
+/* Floating Label Logic */
+.gh-input-group input:focus ~ label,
+.gh-input-group input:not(:placeholder-shown) ~ label {
+    top: 0;
+    font-size: 0.75rem;
+    color: var(--gh-neon-red);
+    background: #150a0c;
+    padding: 0 6px;
+    transform: translateY(-50%) scale(1);
+    letter-spacing: 1px;
+}
+
+.gh-input-group input:focus {
+    border-color: var(--gh-neon-red);
+    box-shadow: 0 0 10px rgba(255, 0, 60, 0.2);
+}
+
+/* Password Strength Meter */
+.gh-strength-meter {
+    height: 4px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    margin-top: 6px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#ghStrengthBar {
+    height: 100%;
+    width: 0%;
+    transition: all 0.4s ease;
+}
+
+/* Actions & Checkbox Layout */
+.gh-form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.85rem;
+    color: var(--gh-text-gray);
+}
+
+.gh-remember-me {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.gh-remember-me input {
+    margin-right: 8px;
+    accent-color: var(--gh-neon-red);
+}
+
+.gh-forgot-link, .gh-switch-portal-text a {
+    color: var(--gh-neon-red);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 600;
+}
+
+.gh-forgot-link:hover, .gh-switch-portal-text a:hover {
+    text-shadow: 0 0 8px var(--gh-neon-red);
+    text-decoration: underline;
+}
+
+.gh-switch-portal-text {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--gh-text-gray);
+}
+
+/* Premium Glowing Button */
+.gh-btn-premium {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #b3002a 0%, #ff003c 100%);
+    border: none;
+    border-radius: 8px;
+    color: var(--gh-text-white);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 0, 60, 0.3);
+    transition: all 0.3s ease;
+}
+
+.gh-btn-premium:hover {
+    box-shadow: 0 0 25px var(--gh-neon-red);
+    transform: translateY(-2px);
+}
+
+.gh-btn-premium:active {
+    transform: translateY(1px);
+}
+
+/* Dynamic Toast System Layout */
+.gh-toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.gh-toast {
+    background: rgba(20, 5, 8, 0.95);
+    border-left: 4px solid var(--gh-neon-red);
+    color: #fff;
+    padding: 15px 25px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    animation: ghToastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Animations Definitions */
+@keyframes ghCardEntry {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ghToastSlideIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.gh-shake {
+    animation: ghShakeAnim 0.4s ease;
+}
+
+@keyframes ghShakeAnim {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
+/* Main Content Hide Class (Only for App Flow) */
+.gh-hidden-main {
+    display: none !important;
+}
+/* ========================================================
+   END OF PORTAL CSS
+   ======================================================== */
+
+
+
+
+
+
+
+
+
