@@ -1224,7 +1224,18 @@ header {
    END OF PORTAL CSS
    ======================================================== */
 
+ /* Pura app me se text selection band karne ke liye */
+* {
+    -webkit-user-select: none; /* Safari aur Android Chrome ke liye */
+    -ms-user-select: none;     /* IE/Edge ke liye */
+    user-select: none;         /* Standard syntax */
+}
 
+/* Agar aap chahte hain ki input box me user type kar sake */
+input, textarea {
+    -webkit-user-select: text;
+    user-select: text;
+}
 
 
 
