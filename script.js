@@ -335,3 +335,67 @@ document.querySelectorAll('.toggle-password').forEach(function(eyeIcon) {
         }
     });
 });
+
+// SIGN UP PAGE SERCUL FUNCTIONS
+
+{
+    const signUpCircle = document.getElementById('ghAvatarPreview');
+    const signUpFileInput = document.getElementById('ghImageInput');
+    const signUpForm = document.getElementById('ghSignUpForm');
+    const signUpNameField = document.getElementById('ghSignUpName');
+    
+    let tempUploadedImageBase64 = "";
+
+    if (signUpCircle && signUpFileInput) {
+        // Circle click karne par gallery kholna
+        signUpCircle.addEventListener('click', () => {
+            signUpFileInput.click();
+        });
+
+        // Photo select hone par preview dikhana
+        signUpFileInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    signUpCircle.style.backgroundImage = `url(${e.target.result})`;
+                    const plusIcon = document.getElementById('ghUploadIcon');
+                    if (plusIcon) plusIcon.style.display = 'none';
+                    tempUploadedImageBase64 = e.target.result; // Data save kiya variable me
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    if (signUpForm) {
+        signUpForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Default form reloading roko
+
+            const typedGamerName = signUpNameField ? signUpNameField.value.trim() : "";
+            const targetNames = document.querySelectorAll('.appGamerName');
+            const targetPics = document.querySelectorAll('.appGamerPic');
+
+            // 1. Temporary name shift karna
+            if (typedGamerName !== "") {
+                targetNames.forEach(nameText => {
+                    nameText.textContent = typedGamerName;
+                });
+            }
+
+            // 2. Temporary picture shift karna
+            if (tempUploadedImageBase64 !== "") {
+                targetPics.forEach(imgElement => {
+                    if (imgElement.tagName === 'IMG') {
+                        imgElement.src = tempUploadedImageBase64;
+                    } else {
+                        imgElement.style.backgroundImage = `url(${tempUploadedImageBase64})`;
+                    }
+                });
+            }
+
+            // Yahan par aapka sign-up box hide karne aur main app content show karne ka custom function automatically hit hoga!
+        });
+    }
+        }
+        
