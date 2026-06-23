@@ -1220,11 +1220,9 @@ header {
 .gh-hidden-main {
     display: none !important;
 }
-/* ========================================================
-   END OF PORTAL CSS
-   ======================================================== */
-
- /* Pura app me se text selection band karne ke liye */
+/* = END OF PORTAL CSS= */
+   
+   /* Pura app me se text selection band karne ke liye */
 * {
     -webkit-user-select: none; /* Safari aur Android Chrome ke liye */
     -ms-user-select: none;     /* IE/Edge ke liye */
@@ -1237,9 +1235,38 @@ input, textarea {
     user-select: text;
 }
 
+/* SIGN UP PAGE ROUNDED SERCUL DESIGN */
 
+.gh-avatar-upload-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
 
+.gh-avatar-preview {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px dashed #ff0055; /* Gaming red layout border */
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #121212;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.3s ease;
+}
 
+.gh-avatar-preview:hover {
+    border-style: solid;
+    box-shadow: 0 0 18px rgba(255, 0, 85, 0.6);
+    transform: scale(1.03);
+}
 
-
-
+#ghUploadIcon {
+    font-size: 18px;
+    color: #ff0055;
+}
