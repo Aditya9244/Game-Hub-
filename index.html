@@ -6,7 +6,7 @@
     <title>Aditya's Gaming Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Teko:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -51,11 +51,21 @@
 
             <div id="ghSignUpBox" class="gh-portal-box gh-hidden">
                 <form id="ghSignUpForm" novalidate>
-                    <div class="gh-input-group">
-                        <input type="text" id="ghSignUpName" required placeholder=" " autocomplete="off">
-                        <label>Gamer Name (Letters Only)</label>
-                        <span class="gh-input-glow"></span>
-                    </div>
+                  
+                  <!-- YAHA PASS SIGN UP PAGE SERCUL DESIGN HA  -->
+                  
+                  <div class="gh-avatar-upload-container">
+    <div class="gh-avatar-preview" id="ghAvatarPreview">
+        <span id="ghUploadIcon"><i class="fa-solid fa-plus"></i></span>
+    </div>
+    <input type="file" id="ghImageInput" accept="image/*" style="display: none;">
+</div>
+<div class="gh-input-group">
+    <input type="text" id="ghSignUpName" required placeholder=" " autocomplete="off">
+    <label>Gamer Name (Letters Only)</label>
+    <span class="gh-input-glow"></span>
+</div>
+
                     <div class="gh-input-group">
                         <input type="email" id="ghSignUpEmail" required placeholder=" " autocomplete="off">
                         <label>Email Address</label>
@@ -98,10 +108,15 @@
             <div id="home-page" class="page-section">
                 <header>
                     <div class="user-info">
-                        <img src="Aditya.png" alt="User" class="avatar">
+                      
+                        <img src="Aditya.png" alt="User" class="avatar appGamerPic">
+                        
                         <div class="greeting">
                             <p>WELCOME BACK</p>
-                            <h1>Aditya <i class="fa-solid fa-check-circle" style="color:var(--primary-red); font-size:0.9rem;"></i></h1>
+                            
+                            <h1><span class="appGamerName">Aditya</span> <i class="fa-solid fa-check-circle" style="color:var(--primary-red); font-size:0.9rem;"></i></h1>
+
+                            
                         </div>
                     </div>
                     <div class="header-icons">
@@ -292,9 +307,13 @@
                 <div class="profile-container">
                     <div class="profile-hero slide-up">
                         <div class="avatar-wrapper">
-                            <img src="Aditya.png" alt="Player Avatar" class="profile-avatar">
+                          
+                            <img src="Aditya.png" alt="Player Avatar" class="profile-avatar appGamerPic">
+                            
                         </div>
-                        <h2>Aditya <i class="fa-solid fa-circle-check" style="color: var(--primary-red);"></i></h2>
+                        
+                        <h2><span class="appGamerName">Aditya</span> <i class="fa-solid fa-circle-check" style="color: var(--primary-red);"></i></h2>
+                        
                         <p class="gamer-tag">Instagram :➜  itz_royal_boy107</p>
                     </div>
 
@@ -370,4 +389,5 @@
 
         </div> </div> <script src="script.js"></script>
 </body>
-</html>
+                                </html>
+
