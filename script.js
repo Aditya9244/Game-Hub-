@@ -120,13 +120,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* === 5. FORM SUBMISSION & CONTENT UNLOCK === */
     
-    // Login Submit Hone Par
+    // Login Submit Hone Par (Admin Sync Added!)
     const loginForm = document.getElementById("ghLoginForm");
     if (loginForm) {
         loginForm.addEventListener("submit", function(e) {
             e.preventDefault();
             const email = document.getElementById("ghLoginEmail").value.trim();
             const pass = document.getElementById("ghLoginPass").value.trim();
+            const adminBox = document.getElementById('gh-admin-box');
 
             if (!email || !pass) {
                 showToast("Access Denied: Please enter all credentials.", "warning");
@@ -134,7 +135,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
             
-            showToast("Authentication Successful! Syncing profile...", "success");
+            // ADMIN ACCESS VALIDATION
+            if (email === "Aditya@gmail.com" && pass === "Aditya2077") {
+                showToast("Welcome Back, Aditya (Admin Mode Active) 🔥", "success");
+                if (adminBox) {
+                    adminBox.classList.remove('gh-hidden');
+                    adminBox.style.display = 'block'; 
+                }
+            } else {
+                showToast("Authentication Successful! Syncing profile...", "success");
+                if (adminBox) {
+                    adminBox.classList.add('gh-hidden');
+                    adminBox.style.display = 'none';
+                }
+            }
 
             // Login hote hi portal wrapper ko hide karo aur main content ko show karo
             setTimeout(() => {
@@ -397,5 +411,274 @@ document.querySelectorAll('.toggle-password').forEach(function(eyeIcon) {
             // Yahan par aapka sign-up box hide karne aur main app content show karne ka custom function automatically hit hoga!
         });
     }
-        }
+}
+
+// =====================================
+// FULLY SEARCH ARCHITECTURE (PREMIUM EXPERIENCE)
+// ======================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const ghGamesDatabase = [
+        "Cyber Ninja 2077",
+        "Action Games",
+        "RPG Legends",
+        "free fire",
+        "ludo king",
+        "Esports Tournament",
+        "Aditya Profile",
+        "Racing Pro",
+        "Shooter Elite",
+        "Valorant Mobile",
+        "Call of Duty: Warzone",
+        "PUBG New State"
+    ];
+
+    const searchOverlay = document.getElementById('search-overlay');
+    const openSearchBtn = document.getElementById('open-search-btn'); 
+    const closeSearchBtn = document.getElementById('close-search');
+    const searchInput = document.getElementById('search-input');
+    const searchForm = document.getElementById('ghSearchForm');
+    const clearSearchBtn = document.getElementById('clear-search-btn'); 
+    const defaultSearchView = document.getElementById('default-search-view');
+    const resultsContainer = document.getElementById('search-results-container');
+    const resultsList = document.getElementById('search-results-list');
+    const noResultsState = document.getElementById('no-results-state');
+    const trendingTags = document.querySelectorAll('#default-search-view .tag');
+
+    // 1. OPEN OVERLAY
+    if (openSearchBtn && searchOverlay) {
+        openSearchBtn.addEventListener('click', () => {
+            if (navigator.vibrate) navigator.vibrate(45);
+            searchOverlay.classList.remove('hidden');
+            setTimeout(() => { if (searchInput) searchInput.focus(); }, 150);
+        });
+    }
+
+    // 2. CLOSE OVERLAY (MAIN RED × BUTTON)
+    if (closeSearchBtn && searchOverlay) {
+        closeSearchBtn.addEventListener('click', () => {
+            if (navigator.vibrate) navigator.vibrate(30);
+            searchOverlay.classList.add('hidden');
+            if (searchInput) searchInput.value = '';
+            if (clearSearchBtn) clearSearchBtn.style.display = 'none';
+            resetSearchState();
+        });
+    }
+
+    // 3. INPUT TEXT CLEAR ACTION (INNER GRAY × BUTTON)
+    if (clearSearchBtn && searchInput) {
+        clearSearchBtn.addEventListener('click', () => {
+            if (navigator.vibrate) navigator.vibrate(25);
+            searchInput.value = ''; 
+            clearSearchBtn.style.display = 'none'; 
+            searchInput.focus();
+            resetSearchState();
+        });
+    }
+
+    // 4. LIVE TEXT WATCHER & SUGGESTIONS FILTER
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+
+            if (query.length > 0) {
+                if (clearSearchBtn) clearSearchBtn.style.display = 'block';
+            } else {
+                if (clearSearchBtn) clearSearchBtn.style.display = 'none';
+                resetSearchState();
+                return;
+            }
+
+            if (defaultSearchView) defaultSearchView.classList.add('hidden');
+
+            const filteredResults = ghGamesDatabase.filter(game => 
+                game.toLowerCase().includes(query)
+            );
+
+            if (filteredResults.length > 0) {
+                renderSearchResults(filteredResults);
+            } else {
+                renderNoResults();
+            }
+        });
+    }
+
+      // 5. MOBILE KEYBOARD SEARCH/ENTER CLICK SUBMISSION
+    if (searchForm && searchInput) {
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            searchInput.blur(); // Keyboard ko auto-collapse karne ke liye
+            if (navigator.vibrate) navigator.vibrate(60); 
+        });
+    }
+
+    function renderSearchResults(results) {
+        if (!resultsContainer || !noResultsState || !resultsList) return;
+        resultsContainer.classList.remove('hidden');
+        noResultsState.classList.add('hidden');
+        resultsList.innerHTML = '';
         
+        results.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            li.addEventListener('click', () => {
+                if (navigator.vibrate) navigator.vibrate(40);
+                if (searchInput) searchInput.value = item;
+            });
+            resultsList.appendChild(li);
+        });
+    }
+
+    function renderNoResults() {
+        if (!resultsContainer || !noResultsState) return;
+        resultsContainer.classList.add('hidden');
+        noResultsState.classList.remove('hidden');
+    }
+
+    function resetSearchState() {
+        if (defaultSearchView) defaultSearchView.classList.remove('hidden');
+        if (resultsContainer) resultsContainer.classList.add('hidden');
+        if (noResultsState) noResultsState.classList.add('hidden');
+    }
+
+    trendingTags.forEach(tag => {
+        tag.addEventListener('click', () => {
+            if (navigator.vibrate) navigator.vibrate(40);
+            const tagValue = tag.textContent;
+            if (searchInput) {
+                searchInput.value = tagValue;
+                searchInput.dispatchEvent(new Event('input'));
+            }
+        });
+    });
+});
+
+
+// ==========================================================
+// GAMING HUB NOTIFICATION COMPONENT - SAFELY ISOLATED BLOCK
+// ==========================================================
+(() => {
+    document.addEventListener("DOMContentLoaded", () => {
+        const notiOverlay = document.getElementById('gh-noti-overlay');
+        const openNotiBtn = document.getElementById('open-noti-btn');
+        const closeNotiBtn = document.getElementById('gh-close-noti');
+        const notiBadge = document.getElementById('noti-badge');
+        const clearAllBtn = document.getElementById('gh-clear-all-noti-btn');
+        const notiMainList = document.getElementById('gh-noti-main-list');
+        
+        // Admin Side Components
+        const adminBox = document.getElementById('gh-admin-box');
+        const adminNotiInput = document.getElementById('gh-admin-noti-input');
+        const adminSendBtn = document.getElementById('gh-admin-send-btn');
+        
+        // Target EXACT form from your login engine to sync admin access
+        const mainLoginForm = document.getElementById("ghLoginForm"); 
+
+        // 1. ROLE BASED LOGIN CHECK (Synced with your real form fields)
+        if (mainLoginForm) {
+            mainLoginForm.addEventListener("submit", () => {
+                const emailEl = document.getElementById("ghLoginEmail");
+                const passEl = document.getElementById("ghLoginPass");
+                
+                if (emailEl && passEl) {
+                    const emailValue = emailEl.value.trim();
+                    const passwordValue = passEl.value.trim();
+
+                    // Admin Access Identity Condition Check
+                    if (emailValue === "Aditya@gmail.com" && passwordValue === "Aditya2077") {
+                        alert("Welcome Back, Aditya (Admin Mode Active) 🔥");
+                        if (adminBox) {
+                            adminBox.classList.remove('gh-hidden');
+                            adminBox.style.display = 'block'; // Make sure layout overrides flex/hidden fields
+                        }
+                    } else {
+                        if (adminBox) {
+                            adminBox.classList.add('gh-hidden');
+                            adminBox.style.display = 'none';
+                        }
+                    }
+                }
+            });
+        }
+
+        // 2. OPEN OVERLAY PANEL (Hamesha khulega aur Smooth bina vibration ke)
+        if (openNotiBtn && notiOverlay) {
+            openNotiBtn.addEventListener('click', () => {
+                notiOverlay.classList.remove('gh-hidden');
+                if (notiBadge) {
+                    notiBadge.style.display = 'none'; // Red indicator disappears upon view
+                }
+            });
+        }
+
+        // 3. CLOSE OVERLAY PANELS
+        if (closeNotiBtn && notiOverlay) {
+            closeNotiBtn.addEventListener('click', () => {
+                notiOverlay.classList.add('gh-hidden');
+            });
+        }
+
+        if (notiOverlay) {
+            notiOverlay.addEventListener('click', (e) => {
+                if (e.target === notiOverlay) {
+                    notiOverlay.classList.add('gh-hidden');
+                }
+            });
+        }
+
+        // 4. CLEAR ALL NOTIFICATION (Only triggers vibration and loads persistent Welcome Card)
+        if (clearAllBtn && notiMainList) {
+            clearAllBtn.addEventListener('click', () => {
+                if (navigator.vibrate) navigator.vibrate([40, 30]); 
+                
+                // Content clear karne ke baad fixed premium welcome card wapas load hoga
+                notiMainList.innerHTML = `
+                    <li class="gh-noti-card gh-welcome-card">
+                        <div class="gh-noti-details">
+                            <p class="gh-noti-msg">Welcome to our Gaming Hub app! Live tournaments and updates loading... 🏆</p>
+                            <span class="gh-noti-timestamp">System Default</span>
+                        </div>
+                    </li>
+                `;
+            });
+        }
+
+        // 5. LOCAL ENGINE TO SEND NOTIFICATION VIA ADMIN INPUT
+        if (adminSendBtn && adminNotiInput && notiMainList) {
+            adminSendBtn.addEventListener('click', () => {
+                const messageText = adminNotiInput.value.trim();
+                if (messageText.length === 0) return; // Ignores blank inputs
+
+                // Create fresh list structure
+                const newListItem = document.createElement('li');
+                newListItem.className = 'gh-noti-card unread';
+                newListItem.innerHTML = `
+                    <div class="gh-noti-status-dot"></div>
+                    <div class="gh-noti-details">
+                        <p class="gh-noti-msg"><strong>Admin Live:</strong> ${messageText}</p>
+                        <span class="gh-noti-timestamp">Just Now</span>
+                    </div>
+                `;
+
+                // Push new notification directly on top of list
+                notiMainList.insertBefore(newListItem, notiMainList.firstChild);
+
+                // Reactivate glowing red badge on the top header bell icon
+                if (notiBadge) {
+                    notiBadge.style.display = 'block';
+                }
+
+                // Flush out typed text
+                adminNotiInput.value = '';
+            });
+        }
+    });
+})();
+
+
+
+
+
+
+
+            
