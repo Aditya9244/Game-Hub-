@@ -120,8 +120,15 @@
                         </div>
                     </div>
                     <div class="header-icons">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <i class="fa-regular fa-bell"></i>
+                      
+                        <i class="fa-solid fa-magnifying-glass" id="open-search-btn"></i>
+
+<div class="gh-bell-wrapper" style="position: relative; display: inline-block; cursor: pointer;">
+    <i class="fa-regular fa-bell" id="open-noti-btn"></i>
+    <span class="gh-noti-badge" id="noti-badge"></span>
+</div>
+
+
                     </div>
                 </header>
 
@@ -191,6 +198,14 @@
                         <button class="join-btn" ontouchstart="">JOIN</button>
                     </div>
                 </section>
+                
+<div id="gh-admin-box" class="gh-admin-message-box gh-hidden">
+    <h4>📢 Secret Admin Controller</h4>
+    <div class="gh-admin-input-group">
+        <input type="text" id="gh-admin-noti-input" placeholder="Type your notification here..." autocomplete="off">
+        <button id="gh-admin-send-btn">Send Alert</button>
+    </div>
+</div>
             </div>
 
             <div id="explore-page" class="page-section" style="display: none;">
@@ -378,7 +393,7 @@
                     <i class="fa-solid fa-gamepad"></i>
                 </a>
                 <a href="#" class="nav-item" id="nav-esports">
-                    <i class="fa-solid fa-trophy"></i>
+                     <i class="fa-solid fa-trophy"></i>
                     <span>Esports</span>
                 </a>
                 <a href="#" class="nav-item" id="nav-profile">
@@ -386,8 +401,79 @@
                     <span>Profile</span>
                 </a>
             </nav>
+            
+            <!-- YAHA SE SEARCH BUTTON HTML HA -->
+            
+            <div id="search-overlay" class="search-overlay hidden">
+    <div class="search-header">
+        <form action="javascript:void(0);" id="ghSearchForm" class="search-input-wrapper">
+            <input type="search" id="search-input" placeholder="Search Games..." autocomplete="off">
+            <button type="button" id="clear-search-btn" class="inner-clear-btn">&times;</button>
+        </form>
+        <button type="button" id="close-search" class="main-close-btn">&times;</button>
+    </div>
+
+    <div class="search-content">
+        <div id="default-search-view">
+            <h3>Trending Searches</h3>
+            <div class="tags">
+                <span class="tag">ACTION</span>
+                <span class="tag">RPG</span>
+                <span class="tag">CYBER NINJA 2077</span>
+            </div>
+        </div>
+
+        <div id="search-results-container" class="hidden">
+            <ul id="search-results-list"></ul>
+        </div>
+
+        <div id="no-results-state" class="hidden">
+            <h2 class="game-over-text">Game Over! No matches found. 😔</h2>
+            <p class="sub-text">Try searching for another game or genre.</p>
+        </div>
+    </div>
+</div>
+ 
+<div id="gh-noti-overlay" class="gh-noti-overlay gh-hidden">
+    <div class="gh-noti-panel">
+        <div class="gh-noti-header">
+            <h2><i class="fa-solid fa-bolt" style="color: #ff3b3b; margin-right: 8px;"></i>Notifications</h2>
+            <button type="button" id="gh-close-noti" class="gh-noti-close-btn">&times;</button>
+        </div>
+
+        <div class="gh-noti-content">
+            <ul id="gh-noti-main-list">
+                <li class="gh-noti-card gh-welcome-card">
+                    <div class="gh-noti-details">
+                        <p class="gh-noti-msg">Welcome to our Gaming Hub app! Live tournaments and updates loading... 🏆
+                ㅤ  ㅤ🤘Satendra_bro.🤘
+                        </p>
+                        <span class="gh-noti-timestamp">System Default</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="gh-noti-footer">
+            <button id="gh-clear-all-noti-btn">Clear All Notification</button>
+        </div>
+    </div>
+</div>
+
+
 
         </div> </div> <script src="script.js"></script>
 </body>
-                                </html>
+</html>
 
+
+
+
+
+
+
+
+
+
+
+                        
